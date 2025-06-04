@@ -24,3 +24,36 @@
   cursor: pointer;
   z-index: 1000;
 }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-animation {
+  animation: spin 1.5s linear infinite;
+}
+
+.social-icon {
+  display: inline-block;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.5s ease-in-out, color 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+.social-icon:hover {
+  transform: rotateY(180deg);
+  /* This is the complementary color of Tailwind's red-600 (#dc2626).
+     When inverted, it will become red. */
+  color: #23D9D9; /* This is a shade of Cyan/Teal */
+  filter: invert(100%); /* This will invert the colors, turning #23D9D9 into #dc2626 (red) */
+}
+
+/* Ensure the text and icon don't flip independently if they are children */
+.social-icon svg {
+  backface-visibility: hidden;
+}
