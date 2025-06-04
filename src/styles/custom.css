@@ -1,0 +1,26 @@
+/* Custom styles that need higher specificity */
+.font-pacifico {
+  font-family: "Pacifico", cursive;
+}
+
+.font-inter {
+  font-family: "Inter", sans-serif;
+}
+
+/* Scroll to top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: #ff0a0a;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.75rem;
+  cursor: pointer;
+  z-index: 1000;
+}
