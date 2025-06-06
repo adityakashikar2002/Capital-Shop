@@ -4,6 +4,8 @@
 // import { faChevronLeft, faChevronRight, faShoppingCart, faHeart, faMagnifyingGlassPlus } from '@fortawesome/free-solid-svg-icons';
 // import { useShop } from '../context/ShopContext';
 // import ProductModal from './ProductModal';
+// import { useNavigate } from 'react-router-dom';
+
 
 // const productItems = [
 //   {
@@ -12,7 +14,7 @@
 //     name: 'Face Cream',
 //     price: '$2.00',
 //     originalPrice: '$5.00',
-//     category: 'Beauty'
+//     category: 'Woman'
 //   },
 //   {
 //     id: 'y-2',
@@ -28,7 +30,7 @@
 //     name: 'Face Cream',
 //     price: '$5.00',
 //     originalPrice: '$12.00',
-//     category: 'Beauty'
+//     category: 'Woman'
 //   },
 //   {
 //     id: 'y-4',
@@ -36,7 +38,7 @@
 //     name: 'Suns Cream',
 //     price: '$10.00',
 //     originalPrice: '$15.00',
-//     category: 'Beauty'
+//     category: 'Woman'
 //   },
 //   {
 //     id: 'y-5',
@@ -48,7 +50,7 @@
 //   },
 //   {
 //     id: 'y-6',
-//     image: 'https://images.unsplash.com/photo-1599662875272-64de8289f6d8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+//     image: 'https://img.freepik.com/free-photo/romantic-portrait-woman-long-blue-dress-beach-by-sea-windy-day_343596-938.jpg',
 //     name: 'Women\'s Summer Dress',
 //     price: '$85.00',
 //     originalPrice: '$100.00',
@@ -56,8 +58,8 @@
 //   },
 //   {
 //     id: 'y-7',
-//     image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-//     name: 'Baby Romper (Unisex)',
+//     image: 'https://img.freepik.com/free-photo/newborn-baby-girl-sleeping-blue-sheets-home_1139-1647.jpg',
+//     name: 'Baby Romper',
 //     price: '$30.00',
 //     originalPrice: '$40.00',
 //     category: 'Baby'
@@ -71,6 +73,8 @@
 //   const [selectedImage, setSelectedImage] = useState(null);
 //   const { addToCart, addToWishlist, isInWishlist,removeFromWishlist } = useShop();
 //   const totalItems = productItems.length;
+//   const navigate = useNavigate();
+
 
 //   const nextSlide = () => {
 //     if (transitioning || totalItems <= 1) return;
@@ -124,9 +128,10 @@
 //             {productItems.concat(productItems).map((item, index) => (
 //               <div
 //                 key={index}
-//                 className="min-w-[25%] text-center text-xs text-gray-700 relative"
+//                 className="min-w-[25%] text-center text-xs text-gray-700 relative cursor-pointer"
 //                 onMouseEnter={() => setHoveredProduct(item.id)}
 //                 onMouseLeave={() => setHoveredProduct(null)}
+//                 onClick={() => navigate('/product-details', { state: { product: item } })}
 //               >
 //                 <img
 //                   alt={item.name}
@@ -204,24 +209,27 @@
 // export default YouMayLikeSection;
 
 
-
-// src/components/YouMayLikeSection.jsx
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight, faShoppingCart, faHeart, faMagnifyingGlassPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronLeft,
+  faChevronRight,
+  faShoppingCart,
+  faHeart,
+  faMagnifyingGlassPlus,
+} from '@fortawesome/free-solid-svg-icons';
 import { useShop } from '../context/ShopContext';
 import ProductModal from './ProductModal';
 import { useNavigate } from 'react-router-dom';
 
-
 const productItems = [
   {
     id: 'y-1',
-    image: 'https://storage.googleapis.com/a1aa/image/0607c996-6b2e-4771-b048-623aa4088ce1.jpg',
-    name: 'Face Cream',
-    price: '$2.00',
-    originalPrice: '$5.00',
-    category: 'Beauty'
+    image: 'https://img.freepik.com/free-photo/young-woman-beautiful-red-dress_1303-17503.jpg',
+    name: 'Printed Dress',
+    price: '$25.00',
+    originalPrice: '$45.00',
+    category: '',
   },
   {
     id: 'y-2',
@@ -229,7 +237,7 @@ const productItems = [
     name: 'Office Suit',
     price: '$98.00',
     originalPrice: '$120.00',
-    category: 'Men'
+    category: 'Men',
   },
   {
     id: 'y-3',
@@ -237,7 +245,7 @@ const productItems = [
     name: 'Face Cream',
     price: '$5.00',
     originalPrice: '$12.00',
-    category: 'Beauty'
+    category: 'Women',
   },
   {
     id: 'y-4',
@@ -245,32 +253,32 @@ const productItems = [
     name: 'Suns Cream',
     price: '$10.00',
     originalPrice: '$15.00',
-    category: 'Beauty'
+    category: 'Women',
   },
   {
     id: 'y-5',
     image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    name: 'Men\'s Summer T-Shirt',
+    name: "Men's Summer T-Shirt",
     price: '$75.00',
     originalPrice: '$90.00',
-    category: 'Men'
+    category: 'Men',
   },
   {
     id: 'y-6',
-    image: 'https://images.unsplash.com/photo-1599662875272-64de8289f6d8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    name: 'Women\'s Summer Dress',
+    image: 'https://img.freepik.com/free-photo/romantic-portrait-woman-long-blue-dress-beach-by-sea-windy-day_343596-938.jpg',
+    name: "Women's Summer Dress",
     price: '$85.00',
     originalPrice: '$100.00',
-    category: 'Women'
+    category: 'Women',
   },
   {
     id: 'y-7',
-    image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
-    name: 'Baby Romper (Unisex)',
+    image: 'https://img.freepik.com/free-photo/newborn-baby-girl-sleeping-blue-sheets-home_1139-1647.jpg',
+    name: 'Baby Romper',
     price: '$30.00',
     originalPrice: '$40.00',
-    category: 'Baby'
-  }
+    category: 'Baby',
+  },
 ];
 
 const YouMayLikeSection = () => {
@@ -278,10 +286,9 @@ const YouMayLikeSection = () => {
   const [transitioning, setTransitioning] = useState(false);
   const [hoveredProduct, setHoveredProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
-  const { addToCart, addToWishlist, isInWishlist,removeFromWishlist } = useShop();
+  const { addToCart, addToWishlist, isInWishlist, removeFromWishlist } = useShop();
   const totalItems = productItems.length;
   const navigate = useNavigate();
-
 
   const nextSlide = () => {
     if (transitioning || totalItems <= 1) return;
@@ -310,13 +317,10 @@ const YouMayLikeSection = () => {
 
   return (
     <div className="max-w-7xl mx-auto py-10 px-4 font-sans overflow-hidden mb-20 mt-20">
-      <h2
-        className="text-center text-sm font-semibold text-gray-900 mb-10"
-        style={{ fontSize: '32px' }}
-      >
+      <h2 className="text-center text-sm font-semibold text-gray-900 mb-10" style={{ fontSize: '32px' }}>
         You May Like
       </h2>
-      
+
       <div className="relative flex items-center justify-center">
         <button
           aria-label="Previous"
@@ -342,13 +346,13 @@ const YouMayLikeSection = () => {
               >
                 <img
                   alt={item.name}
-                  className="w-[400px] h-[425px] object-contain mx-auto rounded-md cursor-pointer"
+                  className="w-[270px] h-[300px] object-cover mx-auto rounded-md cursor-pointer mb-6"
                   src={item.image}
                   onClick={() => setSelectedImage(item.image)}
                 />
                 {hoveredProduct === item.id && (
-                  <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2 bg-white pl-4 pr-4 p-2 mb-8 rounded-md transition-opacity duration-300">
-                    <button 
+                  <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2 bg-white pl-4 pr-4 p-2 mb-8 rounded-md transition-opacity duration-300">
+                    <button
                       className="p-2 rounded-full border border-gray-300 hover:bg-red-600 hover:text-white transition-colors duration-300 text-[18px]"
                       onClick={(e) => {
                         e.stopPropagation();
@@ -357,8 +361,10 @@ const YouMayLikeSection = () => {
                     >
                       <FontAwesomeIcon icon={faShoppingCart} />
                     </button>
-                    <button 
-                      className={`p-2 rounded-full border border-gray-300 ${isInWishlist(item.id) ? 'bg-red-600 text-white' : 'hover:bg-red-600 hover:text-white'} transition-colors duration-300 text-[18px]`}
+                    <button
+                      className={`p-2 rounded-full border border-gray-300 ${
+                        isInWishlist(item.id) ? 'bg-red-600 text-white' : 'hover:bg-red-600 hover:text-white'
+                      } transition-colors duration-300 text-[18px]`}
                       onClick={(e) => {
                         e.stopPropagation();
                         if (isInWishlist(item.id)) {
@@ -370,7 +376,7 @@ const YouMayLikeSection = () => {
                     >
                       <FontAwesomeIcon icon={faHeart} />
                     </button>
-                    <button 
+                    <button
                       className="p-2 rounded-full border border-gray-300 hover:bg-red-600 hover:text-white transition-colors duration-300 text-[18px]"
                       onClick={(e) => {
                         e.stopPropagation();
@@ -386,7 +392,7 @@ const YouMayLikeSection = () => {
                 </span>
                 <span className="mt-1 block text-[16px]">
                   <span className="text-black font-semibold">{item.price}</span>{' '}
-                  <s className="text-gray-400 text-[16x] font-semibold">{item.originalPrice}</s>
+                  <s className="text-gray-400 text-[16px] font-semibold">{item.originalPrice}</s>
                 </span>
               </div>
             ))}
@@ -404,10 +410,7 @@ const YouMayLikeSection = () => {
       </div>
 
       {selectedImage && (
-        <ProductModal 
-          image={selectedImage} 
-          onClose={() => setSelectedImage(null)} 
-        />
+        <ProductModal image={selectedImage} onClose={() => setSelectedImage(null)} />
       )}
     </div>
   );

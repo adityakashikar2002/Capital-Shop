@@ -58,7 +58,8 @@
 //             {cart.map(item => (
 //               <div
 //                 key={item.id}
-//                 className="grid grid-cols-12 items-center border-b border-gray-200 py-4"
+//                 className="grid grid-cols-12 items-center border-b border-gray-200 py-4 cursor-pointer"
+//                 onClick={() => navigate('/product-details', { state: { product: item } })}
 //               >
 //                 <div className="col-span-5 flex items-center space-x-2">
 //                   <img
@@ -151,14 +152,13 @@
 // export default Cart;
 
 
-
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useShop } from '../context/ShopContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPlus, faMinus, faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom'; // Corrected import: Navigate is for declarative routing, useNavigate for programmatic
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const { cart, removeFromCart, updateQuantity, cartCount } = useShop();
@@ -190,7 +190,6 @@ const Cart = () => {
           <div className="text-center py-12">
             <h2 className="text-2xl font-semibold mb-4">Your cart is empty</h2>
             <p className="mb-6">Looks like you haven't added anything to your cart yet</p>
-            {/* Corrected: Use navigate('/') inside an arrow function */}
             <button
               onClick={() => navigate(-1)}
               className="bg-[#ff0a0a] text-white text-xs font-semibold rounded-full px-5 py-2"
@@ -224,7 +223,10 @@ const Cart = () => {
                   <div>
                     <h3 className="font-medium">{item.name}</h3>
                     <button
-                      onClick={() => removeFromCart(item.id)}
+                      onClick={(e) => {
+                        e.stopPropagation(); // Stop click from propagating to parent div
+                        removeFromCart(item.id);
+                      }}
                       className="text-red-600 text-sm mt-1 flex items-center"
                     >
                       <FontAwesomeIcon icon={faTrash} className="mr-1" />
@@ -237,14 +239,20 @@ const Cart = () => {
 
                 <div className="col-span-2 flex justify-center items-center border border-gray-300 rounded w-fit ml-14">
                   <button
-                    onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                    onClick={(e) => {
+                      e.stopPropagation(); // Stop click from propagating to parent div
+                      updateQuantity(item.id, item.quantity - 1);
+                    }}
                     className="px-3 py-1 hover:bg-gray-100"
                   >
                     <FontAwesomeIcon icon={faMinus} size="xs" />
                   </button>
                   <span className="px-3">{item.quantity}</span>
                   <button
-                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                    onClick={(e) => {
+                      e.stopPropagation(); // Stop click from propagating to parent div
+                      updateQuantity(item.id, item.quantity + 1);
+                    }}
                     className="px-3 py-1 hover:bg-gray-100"
                   >
                     <FontAwesomeIcon icon={faPlus} size="xs" />
@@ -285,7 +293,6 @@ const Cart = () => {
                 </div>
 
                 <div className="flex justify-between mt-6 space-x-4">
-                  {/* Corrected: Use navigate('/') inside an arrow function */}
                   <button className="bg-[#ff0a0a] text-white text-xs font-semibold rounded-full px-5 py-2" onClick={() => navigate(-1)}>
                     Continue Shopping
                   </button>
