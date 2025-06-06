@@ -69,7 +69,7 @@
 //   const [transitioning, setTransitioning] = useState(false);
 //   const [hoveredProduct, setHoveredProduct] = useState(null);
 //   const [selectedImage, setSelectedImage] = useState(null);
-//   const { addToCart, addToWishlist } = useShop();
+//   const { addToCart, addToWishlist, isInWishlist,removeFromWishlist } = useShop();
 //   const totalItems = productItems.length;
 
 //   const nextSlide = () => {
@@ -146,10 +146,14 @@
 //                       <FontAwesomeIcon icon={faShoppingCart} />
 //                     </button>
 //                     <button 
-//                       className="p-2 rounded-full border border-gray-300 hover:bg-red-600 hover:text-white transition-colors duration-300 text-[18px]"
+//                       className={`p-2 rounded-full border border-gray-300 ${isInWishlist(item.id) ? 'bg-red-600 text-white' : 'hover:bg-red-600 hover:text-white'} transition-colors duration-300 text-[18px]`}
 //                       onClick={(e) => {
 //                         e.stopPropagation();
-//                         addToWishlist(item);
+//                         if (isInWishlist(item.id)) {
+//                           removeFromWishlist(item.id);
+//                         } else {
+//                           addToWishlist(item);
+//                         }
 //                       }}
 //                     >
 //                       <FontAwesomeIcon icon={faHeart} />
@@ -207,6 +211,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight, faShoppingCart, faHeart, faMagnifyingGlassPlus } from '@fortawesome/free-solid-svg-icons';
 import { useShop } from '../context/ShopContext';
 import ProductModal from './ProductModal';
+import { useNavigate } from 'react-router-dom';
+
 
 const productItems = [
   {
@@ -274,6 +280,8 @@ const YouMayLikeSection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const { addToCart, addToWishlist, isInWishlist,removeFromWishlist } = useShop();
   const totalItems = productItems.length;
+  const navigate = useNavigate();
+
 
   const nextSlide = () => {
     if (transitioning || totalItems <= 1) return;
@@ -327,9 +335,10 @@ const YouMayLikeSection = () => {
             {productItems.concat(productItems).map((item, index) => (
               <div
                 key={index}
-                className="min-w-[25%] text-center text-xs text-gray-700 relative"
+                className="min-w-[25%] text-center text-xs text-gray-700 relative cursor-pointer"
                 onMouseEnter={() => setHoveredProduct(item.id)}
                 onMouseLeave={() => setHoveredProduct(null)}
+                onClick={() => navigate('/product-details', { state: { product: item } })}
               >
                 <img
                   alt={item.name}

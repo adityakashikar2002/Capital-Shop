@@ -147,13 +147,15 @@
 
 // ];
 
+
 // const TrendingSection = () => {
 //   const [activeTab, setActiveTab] = useState('Men');
 //   const [slideIndex, setSlideIndex] = useState(0);
 //   const [isTransitioning, setIsTransitioning] = useState(false);
 //   const [hoveredProduct, setHoveredProduct] = useState(null);
 //   const [selectedImage, setSelectedImage] = useState(null);
-//   const { addToCart, addToWishlist } = useShop();
+//   const { addToCart} = useShop();
+//   const { isInWishlist, addToWishlist, removeFromWishlist } = useShop();
 //   const sliderRef = useRef(null);
 
 //   const ITEMS_VISIBLE = 4; // Number of items to display at once in the carousel view
@@ -320,15 +322,19 @@
 //                       >
 //                         <FontAwesomeIcon icon={faShoppingCart} />
 //                       </button>
-//                       <button
-//                         className="p-2 rounded-full border border-gray-300 hover:bg-red-600 hover:text-white transition-colors duration-300 text-[18px]"
-//                         onClick={(e) => {
-//                           e.stopPropagation();
-//                           addToWishlist(item);
-//                         }}
-//                       >
-//                         <FontAwesomeIcon icon={faHeart} />
-//                       </button>
+//                       <button 
+//                           className={`p-2 rounded-full border border-gray-300 ${isInWishlist(item.id) ? 'bg-red-600 text-white' : 'hover:bg-red-600 hover:text-white'} transition-colors duration-300 text-[18px]`}
+//                           onClick={(e) => {
+//                             e.stopPropagation();
+//                             if (isInWishlist(item.id)) {
+//                               removeFromWishlist(item.id);
+//                             } else {
+//                               addToWishlist(item);
+//                             }
+//                           }}
+//                         >
+//                           <FontAwesomeIcon icon={faHeart} />
+//                         </button>
 //                       <button
 //                         className="p-2 rounded-full border border-gray-300 hover:bg-red-600 hover:text-white transition-colors duration-300 text-[18px]"
 //                         onClick={(e) => {
@@ -376,13 +382,13 @@
 
 // export default TrendingSection;
 
-
 // src/components/TrendingSection.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight, faShoppingCart, faHeart, faMagnifyingGlassPlus } from '@fortawesome/free-solid-svg-icons';
 import { useShop } from '../context/ShopContext';
 import ProductModal from './ProductModal';
+import { useNavigate } from 'react-router-dom';
 
 const tabs = ['Men', 'Women', 'Baby', 'Fashion'];
 
@@ -528,7 +534,7 @@ const productItems = [
 
 
 const TrendingSection = () => {
-  const [activeTab, setActiveTab] = useState('Men');
+  const [activeTab, setActiveTab] = useState('Fashion');
   const [slideIndex, setSlideIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [hoveredProduct, setHoveredProduct] = useState(null);
@@ -536,6 +542,7 @@ const TrendingSection = () => {
   const { addToCart} = useShop();
   const { isInWishlist, addToWishlist, removeFromWishlist } = useShop();
   const sliderRef = useRef(null);
+  const navigate = useNavigate();
 
   const ITEMS_VISIBLE = 4; // Number of items to display at once in the carousel view
 
@@ -622,7 +629,7 @@ const TrendingSection = () => {
     }
     const interval = setInterval(() => {
       nextSlide();
-    }, 3000);
+    }, 2000);
     return () => clearInterval(interval);
   }, [nextSlide, totalOriginalItems]);
 
@@ -676,13 +683,12 @@ const TrendingSection = () => {
               onTransitionEnd={() => setIsTransitioning(false)}
             >
               {extendedProducts.map((item, index) => (
-                <div
+               <div
                   key={`${item.id}-${index}`}
-                  // Use w-1/4 for explicit 25% width, flex-shrink-0 to prevent shrinking
-                  // Removed px-3 and mx-1 as gap-x handles spacing
-                  className="flex-shrink-0 w-1/4 text-center bg-white rounded-md shadow-md p-4 relative"
+                  className="flex-shrink-0 w-1/4 text-center bg-white rounded-md shadow-md p-4 relative cursor-pointer"
                   onMouseEnter={() => setHoveredProduct(item.id)}
                   onMouseLeave={() => setHoveredProduct(null)}
+                  onClick={() => navigate('/product-details', { state: { product: item } })}
                 >
                   <img
                     alt={item.name}
