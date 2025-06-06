@@ -70,16 +70,7 @@ const HeroSection = () => {
           >
             {slide.subheading}
           </motion.p>
-
-          {/* <motion.h2
-            className="font-bold text-gray-900 mb-2"
-            style={{ fontSize: '40px' }}
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: [1, 1.05, 1], opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            {slide.heading}
-          </motion.h2> */}
+          
           <motion.h2
             className="font-bold text-gray-900 mb-2"
             style={{ fontSize: '40px' }}
