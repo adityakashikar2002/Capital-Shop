@@ -35,7 +35,7 @@ const SignIn = () => {
               name="email"
               type="email"
               placeholder="Enter email address"
-              className={`w-full border ${errors.email ? 'border-red-500' : 'border-gray-300'} text-xs text-[#9B9B9B] placeholder-[#9B9B9B] px-4 py-3 focus:outline-none focus:ring-1 focus:ring-[#0B0B2B]`}
+              className={`w-full border ${errors.email ? 'border-red-500' : 'border-gray-300'} text-xs text-[#000000] placeholder-[#9B9B9B] px-4 py-3 focus:outline-none focus:ring-1 focus:ring-[#0B0B2B]`}
               {...register("email", { 
                 required: "Email is required",
                 pattern: {
@@ -56,7 +56,7 @@ const SignIn = () => {
               name="password"
               type="password"
               placeholder="Enter Password"
-              className={`w-full border ${errors.password ? 'border-red-500' : 'border-gray-300'} text-xs text-[#9B9B9B] placeholder-[#9B9B9B] px-4 py-3 focus:outline-none focus:ring-1 focus:ring-[#0B0B2B]`}
+              className={`w-full border ${errors.password ? 'border-red-500' : 'border-gray-300'} text-xs text-[#000000] placeholder-[#9B9B9B] px-4 py-3 focus:outline-none focus:ring-1 focus:ring-[#0B0B2B]`}
               {...register("password", { 
                 required: "Password is required",
                 minLength: {

@@ -46,7 +46,7 @@ const SignUp = () => {
               name="fullname"
               type="text"
               placeholder="Enter full name"
-              className={`w-full border ${errors.fullName ? 'border-red-500' : 'border-gray-300'} text-xs text-gray-400 placeholder-gray-400 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#0B0B2B]`}
+              className={`w-full border ${errors.fullName ? 'border-red-500' : 'border-gray-300'} text-xs text-[#000000] placeholder-gray-400 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#0B0B2B]`}
               {...register("fullName", { required: "Full name is required" })}
             />
             {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName.message}</p>}
@@ -60,7 +60,7 @@ const SignUp = () => {
               name="email"
               type="email"
               placeholder="Enter email address"
-              className={`w-full border ${errors.email ? 'border-red-500' : 'border-gray-300'} text-xs text-gray-400 placeholder-gray-400 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#0B0B2B]`}
+              className={`w-full border ${errors.email ? 'border-red-500' : 'border-gray-300'} text-xs text-[#000000] placeholder-gray-400 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#0B0B2B]`}
               {...register("email", { 
                 required: "Email is required",
                 pattern: {
@@ -80,7 +80,7 @@ const SignUp = () => {
               name="password"
               type="password"
               placeholder="Enter Password"
-              className={`w-full border ${errors.password ? 'border-red-500' : 'border-gray-300'} text-xs text-gray-400 placeholder-gray-400 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#0B0B2B]`}
+              className={`w-full border ${errors.password ? 'border-red-500' : 'border-gray-300'} text-xs text-[#000000] placeholder-gray-400 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#0B0B2B]`}
               {...register("password", { 
                 required: "Password is required",
                 minLength: {
@@ -103,7 +103,7 @@ const SignUp = () => {
               name="confirmpassword"
               type="password"
               placeholder="Confirm Password"
-              className={`w-full border ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300'} text-xs text-gray-400 placeholder-gray-400 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#0B0B2B]`}
+              className={`w-full border ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300'} text-xs text-[#000000] placeholder-gray-400 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#0B0B2B]`}
               {...register("confirmPassword", { 
                 required: "Please confirm your password",
                 validate: value => 

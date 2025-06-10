@@ -18,6 +18,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Blog from './pages/Blog';
+import Contact from './pages/Contact';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -64,7 +65,8 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/product-details" element={<ProductDetails />} />
-           <Route path="/blog" element={<Blog/>} />
+          <Route path="/blog" element={<Blog/>} />
+          <Route path="/contact" element={<Contact/>} />
           
           {/* Protected Routes */}
           <Route path="/cart" element={
