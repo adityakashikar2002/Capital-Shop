@@ -132,20 +132,20 @@ const Header = () => {
             </li>
             <li className="relative group" ref={blogDropdownRef}>
               <Link
-                to="#"
+                to="/blog"
                 className="hover:text-red-600 transition-colors duration-200 flex items-center gap-1"
-                onClick={toggleBlogDropdown}
+                // onClick={toggleBlogDropdown}
               >
                 Blog
-                <FontAwesomeIcon icon={faChevronDown} className="text-xs" />
+                {/* <FontAwesomeIcon icon={faChevronDown} className="text-xs" /> */}
               </Link>
-              {isBlogDropdownOpen && (
+              {/* {isBlogDropdownOpen && (
                 <div className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg py-1 z-10">
-                  <Link to="/blog-main" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Blog</Link>
+                  <Link to="/blog" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Blog</Link>
                   <Link to="/blog-elements" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Elements</Link>
                   <Link to="/blog-details" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Blog Details</Link>
                 </div>
-              )}
+              )} */}
             </li>
             <li><Link to="/contact" className="hover:text-red-600 transition-colors duration-200">Contact</Link></li>
           </ul>

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleUp, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import Men from './pages/Men';
 import Women from './pages/Women';
 import Baby from './pages/Baby';
@@ -17,6 +17,7 @@ import Checkout from './pages/Checkout';
 import ProtectedRoute from './components/ProtectedRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Blog from './pages/Blog';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -63,6 +64,7 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/product-details" element={<ProductDetails />} />
+           <Route path="/blog" element={<Blog/>} />
           
           {/* Protected Routes */}
           <Route path="/cart" element={
@@ -101,7 +103,7 @@ function App() {
             onClick={scrollToTop}
             className="bg-[#ff0a0a] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-red-700 transition-all"
           >
-            <FontAwesomeIcon icon={faArrowUp} className="text-xl" />
+            <FontAwesomeIcon icon={faAngleDoubleUp} className="text-xl" />
           </button>
           <span className="mt-2 text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             Go to Top
