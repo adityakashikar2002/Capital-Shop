@@ -23,9 +23,21 @@ const ProductDetails = () => {
     description: 'No description available'
   };
 
+  // const handleAddToCart = () => {
+  //   addToCart(product);
+  //   navigate('/cart');
+  // };
+
   const handleAddToCart = () => {
-    addToCart(product);
-    navigate('/cart');
+    // e.stopPropagation();
+    const result = addToCart(product);
+    if (result.requiresLogin) {
+      navigate('/signin', { state: { from: location.pathname } });
+    }
+    else
+    {
+      navigate('/cart');
+    }
   };
 
   const handleShare = () => {

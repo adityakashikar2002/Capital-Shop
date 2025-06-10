@@ -142,7 +142,7 @@ const Cart = () => {
                   <button className="bg-[#ff0a0a] text-white text-xs font-semibold rounded-full px-5 py-2" onClick={() => navigate(-1)}>
                     Continue Shopping
                   </button>
-                  <button className="bg-[#ff0a0a] text-white text-xs font-semibold rounded-full px-5 py-2">
+                  <button className="bg-[#ff0a0a] text-white text-xs font-semibold rounded-full px-5 py-2" onClick={() => navigate('/checkout')}>
                     Proceed to Checkout
                   </button>
                 </div>
