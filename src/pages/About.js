@@ -9,7 +9,7 @@ const About = () => {
     {
       name: 'Dwyane John',
       role: 'Founder & CEO',
-      bio: 'With over 15 years in the fashion industry, Alex founded Capital Shop to bring quality fashion to everyone.',
+      bio: 'With over 15 years in the fashion industry, Dwyane founded Capital Shop to bring quality fashion to everyone.',
       img: 'https://img.freepik.com/free-photo/close-up-portrait-curly-handsome-european-male_176532-8133.jpg'
     },
     {
