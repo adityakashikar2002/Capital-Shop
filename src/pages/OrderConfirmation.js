@@ -112,7 +112,7 @@ const OrderConfirmation = () => {
                   <p>
                     {orderDetails.country === 'US' ? 'United States' : 
                      orderDetails.country === 'CA' ? 'Canada' :
-                     orderDetails.country === 'IN' ? 'India' :
+                     orderDetails.country === 'IND' ? 'India' :
                      orderDetails.country === 'UK' ? 'United Kingdom' : 'Australia'}
                   </p>
                 </div>

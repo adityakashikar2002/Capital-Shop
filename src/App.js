@@ -22,11 +22,6 @@ import Contact from './pages/Contact';
 import About from './pages/About';
 import FAQ from './pages/Faq';
 import PrivacyPolicy from './pages/Privacy';
-
-// import ShippingPage from './pages/ShippingPage';
-// import PaymentPage from './pages/PaymentPage';
-// import PlaceOrderPage from './pages/PlaceOrderPage';
-// import OrderSuccessPage from './pages/OrderSuccessPage';
 import OrderConfirmation from './pages/OrderConfirmation';
 
 function App() {
@@ -96,26 +91,6 @@ function App() {
               <Checkout />
             </ProtectedRoute>
           } />
-          {/* <Route path="/shipping" element={
-            <ProtectedRoute>
-              <ShippingPage />
-            </ProtectedRoute>
-          } />
-          <Route path="/payment" element={
-            <ProtectedRoute>
-              <PaymentPage />
-            </ProtectedRoute>
-          } />
-          <Route path="/placeorder" element={
-            <ProtectedRoute>
-              <PlaceOrderPage />
-            </ProtectedRoute>
-          } />
-          <Route path="/order/:id" element={
-            <ProtectedRoute>
-              <OrderSuccessPage />
-            </ProtectedRoute>
-          } /> */}
           <Route path="/order-confirmation" element={
             <ProtectedRoute>
               <OrderConfirmation />
