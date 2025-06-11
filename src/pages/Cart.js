@@ -29,7 +29,7 @@ const Cart = () => {
         </nav>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 py-12">
+      <main className="max-w-[full]  ml-40 mr-40 px-4 py-12">
         <h1 className="text-3xl font-bold mb-8">Your Cart ({cartCount})</h1>
 
         {cart.length === 0 ? (
@@ -37,7 +37,7 @@ const Cart = () => {
             <h2 className="text-2xl font-semibold mb-4">Your cart is empty</h2>
             <p className="mb-6">Looks like you haven't added anything to your cart yet</p>
             <button
-              onClick={() => navigate(-1)}
+              onClick={() => navigate('/')}
               className="bg-[#ff0a0a] text-white text-xs font-semibold rounded-full px-5 py-2"
             >
               Continue Shopping

@@ -19,6 +19,9 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
+import About from './pages/About';
+import FAQ from './pages/Faq';
+import PrivacyPolicy from './pages/Privacy';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -67,6 +70,9 @@ function App() {
           <Route path="/product-details" element={<ProductDetails />} />
           <Route path="/blog" element={<Blog/>} />
           <Route path="/contact" element={<Contact/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/faq" element={<FAQ/>} />
+          <Route path="/privacy" element={<PrivacyPolicy/>} />
           
           {/* Protected Routes */}
           <Route path="/cart" element={

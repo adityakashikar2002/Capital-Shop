@@ -59,7 +59,7 @@ const Contact = () => {
           </ul>
         </nav>
       </header>
-      <div className="max-w-5xl mx-auto px-4 py-12"> {/* Added px-4 py-12 for consistent spacing */}
+      <div className="max-w-[full] ml-40 mr-40 px-4 py-12"> {/* Added px-4 py-12 for consistent spacing */}
         {/* Google Maps Section */}
         <div className="bg-gray-200 h-64 md:h-96 flex flex-col justify-center items-center text-center">
           <div className="w-full h-full">
@@ -74,7 +74,7 @@ const Contact = () => {
         </div>
 
         {/* Contact Form and Info Section */}
-        <div className="mt-10 md:mt-16 flex flex-col md:flex-row md:justify-between">
+        <div className="mt-10 md:mt-16 flex flex-col md:flex-row md:justify-between ml-24 mr-24">
           {/* Contact Form */}
           <form onSubmit={handleSubmit} className="flex-1 max-w-3xl">
             <h2 className="font-semibold text-lg mb-4">Get in Touch</h2>
@@ -126,24 +126,24 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="mt-10 md:mt-0 md:ml-12 flex flex-col gap-6 text-xs text-gray-700 max-w-xs">
             <div className="flex items-start gap-3">
-              <FaHome className="mt-1 text-gray-600" />
+              <FaHome className="mt-1 text-gray-600 text-[24px]" />
               <div>
-                <p className="font-semibold text-gray-900">Connaught Place, New Delhi</p>
-                <p>Delhi, India 110001</p>
+                <p className="font-semibold text-[16px] text-gray-900">Connaught Place, New Delhi</p>
+                <p className='text-[14px] mt-1'>Delhi, India 110001</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <FaMobileAlt className="mt-1 text-gray-600" />
+              <FaMobileAlt className="mt-1 text-gray-600 text-[24px]" />
               <div>
-                <p className="font-semibold text-gray-900">+91 11 2336 5358</p>
-                <p>Mon to Fri 9am to 6pm</p>
+                <p className="font-semibold text-[16px] text-gray-900">+91 11 2336 5358</p>
+                <p className='text-[14px] mt-1'>Mon to Fri 9am to 6pm</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <FaEnvelope className="mt-1 text-gray-600" />
+              <FaEnvelope className="mt-1 text-gray-600 text-[24px]" />
               <div>
-                <p className="font-semibold text-gray-900">capitalshop@gmail.com</p>
-                <p>Send us your query anytime!</p>
+                <p className="font-semibold text-[16px] text-gray-900">capitalshop@gmail.com</p>
+                <p className='text-[14px] mt-1'>Send us your query anytime!</p>
               </div>
             </div>
           </div>

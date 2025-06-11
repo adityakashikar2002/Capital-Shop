@@ -70,7 +70,7 @@ const Header = () => {
           <Link to="/about" className="hover:text-red-600 transition-colors duration-200">About Us</Link>
           <Link to="/privacy" className="hover:text-red-600 transition-colors duration-200">Privacy</Link>
           <Link to="/faq" className="hover:text-red-600 transition-colors duration-200">FAQ</Link>
-          <Link to="/careers" className="hover:text-red-600 transition-colors duration-200">Careers</Link>
+          {/* <Link to="/careers" className="hover:text-red-600 transition-colors duration-200">Careers</Link> */}
         </div>
         <div className="flex items-center space-x-3 text-[14px] mr-72">
           <Link to="/wishlist" className="hover:text-red-600 transition-colors duration-200">

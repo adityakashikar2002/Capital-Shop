@@ -550,7 +550,7 @@ const Blog = () => {
       </header>
 
       {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col lg:flex-row gap-10">
+      <div className="max-w-[full] ml-40 mr-40 px-4 sm:px-6 lg:px-8 py-10 flex flex-col lg:flex-row gap-10">
         <main className="flex-1 lg:col-span-8 space-y-10">
           {/* Blog posts */}
           {currentPosts.length > 0 ? (

@@ -58,7 +58,7 @@ const Checkout = () => {
           please proceed to the Billing &amp; Shipping section.
         </p>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="max-w-4xl flex flex-col lg:flex-row lg:space-x-20">
+        <form onSubmit={handleSubmit(onSubmit)} className="max-w-7xl flex flex-col lg:flex-row lg:space-x-20">
           <div className="flex-1">
             <h3 className="font-semibold mb-6 text-[14px]">Billing Details</h3>
             <div className="space-y-6">
@@ -206,7 +206,7 @@ const Checkout = () => {
             ></textarea>
           </div>
 
-          <aside className="bg-[#f7f7f7] p-6 mt-10 lg:mt-0 w-full lg:w-96 text-[13px] rounded-md">
+          <aside className="bg-[#f7f7f7] p-6 mt-10 ml-10 lg:mt-0 w-full lg:w-96 text-[13px] rounded-md h-[600px]">
             <h3 className="font-semibold mb-6 text-[14px]">Your Order</h3>
             <div className="mb-4">
               <div className="flex justify-between border-b border-gray-300 pb-2 mb-2">
